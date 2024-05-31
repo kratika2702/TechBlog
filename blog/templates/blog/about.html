@@ -1,0 +1,33 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block title %}About Us - TECH BLOG{% endblock title %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">About Us</h1>
+    
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card mb-4" style="box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);">
+                <div class="card-body">
+                    <h3 class="card-title">Our Mission</h3>
+                    <p class="card-text">At TECH BLOG, our mission is to provide insightful, accurate, and up-to-date content on the latest trends in technology. Whether you're a tech enthusiast, a professional, or simply curious about the tech world, we aim to bring you high-quality articles that inform and inspire.</p>
+                </div>
+            </div>
+            <div class="card mb-4" style="box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);">
+                <div class="card-body">
+                    <h3 class="card-title">Our Team</h3>
+                    <p class="card-text">Our team is composed of experienced writers, industry professionals, and tech enthusiasts who are passionate about sharing their knowledge and insights. We strive to create content that is not only informative but also engaging and accessible to readers of all levels of expertise.</p>
+                </div>
+            </div>
+            <div class="card mb-4" style="box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);">
+                <div class="card-body">
+                    <h3 class="card-title">Contact Us</h3>
+                    <p class="card-text">We love hearing from our readers! If you have any questions, feedback, or suggestions, please don't hesitate to reach out to us at <a href="mailto:contact@techblog.com">contact@techblog.com</a>. You can also follow us on social media to stay updated with our latest posts and updates.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

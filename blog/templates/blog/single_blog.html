@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block title %}{{ blog.title }} - TECH BLOG{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center mt-5">{{ blog.title }}</h1>
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8">
+            <div class="card mb-2 p-4" style="box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);">
+                <div class="card-body">
+                    <p class="card-text">{{ blog.cont|linebreaksbr }}</p>
+                    <p class="card-text " ><h5 class="text-muted">By <a href="{% url 'author_blogs' author_id=blog.author.pk %}">{{ blog.author.user }}</a></h5></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,27 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block title %}TECH BLOG{% endblock title %}
+{% block content %}
+<div class="">
+    <h1 class="text-center m-5 mb-4"> Welcome to TECH BLOG </h1>
+    
+    <div class="row">
+        <div class="col-md-10 offset-md-2">
+            <h5 class="mb-2" style="margin-left: -30px;"> Recent Blogs </h5>
+            {% for blog in blogs %}
+                <div class="card mb-2 {% cycle 'bg-gray' 'bg-white' %} " style="box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);">
+                    <div class="card-body">
+                        <h3 class="card-title">{{ blog.title }}</h3>
+                        {% if blog.cont|truncatewords_html:50|linebreaksbr != blog.cont|linebreaksbr %}
+                            <p class="card-text">{{ blog.cont|truncatewords_html:50|linebreaksbr }} <a href="{% url 'blog_detail' pk=blog.pk %}"  class="card-link">read more</a></p>
+                        {% else %}
+                            <p class="card-text">{{ blog.cont|linebreaksbr }}</p>
+                        {% endif %} 
+                        <p class="card-text "><h6 class="text-muted"> - <a href="{% url 'author_blogs' author_id=blog.author.pk %}">{{ blog.author.user }}</a></h6></p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>    
+</div>
+{% endblock content %}

@@ -1,0 +1,46 @@
+<!-- Logout confirmation modal -->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logoutModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content ">
+      <div class="modal-header">
+        <h5 class="modal-title" id="logoutModalLabel">Confirm Logout</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to logout?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <form id="logoutForm" method="post" action="{% url 'logout' %}">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-primary">Logout</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand ml-5 " href="/">TECH BLOG</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav mx-auto ml-5">
+      <a class="nav-item nav-link active mx-2" href="/">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link mx-2" href="{% url 'about' %}">About</a>
+      <a class="nav-item nav-link mx-2" href="{% url 'contact' %}">Contact</a>
+    </div>
+    <div class="navbar-nav ml-auto">
+      {% if request.user.is_authenticated %}
+        <a class="nav-item nav-link mx-2" href="{% url 'dashboard' %}">Dashboard</a>
+        <a class="nav-item nav-link mx-2" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+      {% else %}
+        <a class="nav-item nav-link mx-2" href="{% url 'signup' %}">Signup</a>
+        <a class="nav-item nav-link mx-2" href="{% url 'login' %}">Login</a>
+      {% endif %}
+    </div>
+  </div>
+</nav>
